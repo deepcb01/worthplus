@@ -1,0 +1,9 @@
+{
+  "name": "worthpuls-website",
+  "private": true,
+  "version": "1.0.0",
+  "description": "WorthPuls static website - pure HTML/CSS/JS, no build step required",
+  "scripts": {
+    "build": "node -e \"const fs=require('fs');const pages=['index.html','about.html','services.html','portfolio.html','contact.html'];const assets=['assets/css/style.css','assets/js/icons.js','assets/js/data.js','assets/js/main.js','assets/favicon.svg'];let ok=true;[...pages,...assets].forEach(f=>{if(!fs.existsSync(f)){console.error('MISSING: '+f);ok=false}else{console.log('OK: '+f)}});pages.forEach(p=>{const c=fs.readFileSync(p,'utf8');if(/veloqtech/i.test(c)){console.error('FAIL: old brand found in '+p);ok=false}});if(!ok){process.exit(1)}console.log('Build validation passed — static site ready.')\""
+  }
+}
